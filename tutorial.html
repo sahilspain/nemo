@@ -3,62 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk CSS Framework - Tutorial</title>
+    <title>Cyberpunk CSS Framework - Complete Tutorial</title>
     <!-- Required Dependencies -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Cyberpunk Framework -->
     <link rel="stylesheet" href="cyberpunk.css">
-    <style>
-        /* Additional styles for tutorial page */
-        .example-container {
-            background: rgba(20, 20, 40, 0.5);
-            border-radius: var(--radius-md);
-            padding: var(--space-lg);
-            margin: var(--space-md) 0;
-            border: 1px dashed var(--neon-blue);
-        }
-        
-        .example-code {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: var(--radius-sm);
-            padding: var(--space-md);
-            font-family: var(--font-mono);
-            color: var(--matrix-green);
-            margin: var(--space-md) 0;
-            overflow-x: auto;
-        }
-        
-        .component-preview {
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            border-radius: var(--radius-md);
-            padding: var(--space-lg);
-            margin: var(--space-lg) 0;
-            background: rgba(10, 10, 30, 0.6);
-        }
-        
-        .color-swatch {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-sm);
-            display: inline-block;
-            margin: var(--space-sm);
-            vertical-align: middle;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .usage-step {
-            background: rgba(26, 26, 46, 0.8);
-            border-left: 4px solid var(--neon-purple);
-            padding: var(--space-md);
-            margin: var(--space-lg) 0;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-        }
-    </style>
 </head>
-<body>
+<body data-theme="dark">
     <!-- Scanlines Effect -->
     <div class="scanlines"></div>
+    
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
     
     <!-- Header -->
     <header class="navbar">
@@ -71,12 +31,17 @@
                 </div>
             </div>
             
+            <button class="navbar-toggler" id="navbarToggler">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav>
-                <ul class="nav-list">
-                    <li><a href="#installation" class="nav-link"><i class="fas fa-download"></i> Install</a></li>
-                    <li><a href="#colors" class="nav-link"><i class="fas fa-palette"></i> Colors</a></li>
-                    <li><a href="#components" class="nav-link"><i class="fas fa-cube"></i> Components</a></li>
-                    <li><a href="#examples" class="nav-link"><i class="fas fa-code"></i> Examples</a></li>
+                <ul class="navbar-nav" id="navbarNav">
+                    <li class="nav-item"><a href="#installation" class="nav-link"><i class="fas fa-download"></i> Install</a></li>
+                    <li class="nav-item"><a href="#colors" class="nav-link"><i class="fas fa-palette"></i> Colors</a></li>
+                    <li class="nav-item"><a href="#components" class="nav-link"><i class="fas fa-cube"></i> Components</a></li>
+                    <li class="nav-item"><a href="#forms" class="nav-link"><i class="fas fa-edit"></i> Forms</a></li>
+                    <li class="nav-item"><a href="#examples" class="nav-link"><i class="fas fa-code"></i> Examples</a></li>
                 </ul>
             </nav>
         </div>
@@ -85,9 +50,9 @@
     <!-- Main Content -->
     <main class="container">
         <!-- Hero Section -->
-        <section class="hero mb-3">
-            <h1 class="glitch">CYBERPUNK CSS FRAMEWORK</h1>
-            <p class="text-center">A futuristic, neon-drenched CSS framework for building cyberpunk-themed interfaces with ease.</p>
+        <section class="hero mb-4">
+            <h1 class="hero-title glitch">CYBERPUNK CSS FRAMEWORK</h1>
+            <p class="hero-subtitle text-center">A futuristic, neon-drenched CSS framework for building cyberpunk-themed interfaces with ease.</p>
             <div class="mt-2 mb-2">
                 <span class="status status-online">
                     <i class="fas fa-circle"></i> FRAMEWORK: ACTIVE
@@ -96,36 +61,51 @@
                     <i class="fas fa-code"></i> VERSION: 2.3.5
                 </span>
             </div>
-            <a href="#installation" class="btn btn-primary mt-2">
-                <i class="fas fa-rocket"></i> GET STARTED
-            </a>
+            <div class="hero-actions">
+                <a href="#installation" class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket"></i> GET STARTED
+                </a>
+                <a href="#components" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-cube"></i> COMPONENTS
+                </a>
+            </div>
         </section>
         
         <!-- Installation -->
         <section id="installation" class="section">
-            <h2><i class="fas fa-download"></i> Installation</h2>
-            <p>Getting started with the Cyberpunk CSS Framework is simple. Follow these steps:</p>
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-download"></i> Installation</h2>
+                <p class="section-subtitle">Getting started with the Cyberpunk CSS Framework is simple. Follow these steps:</p>
+            </div>
             
             <div class="usage-step">
                 <h4><i class="fas fa-file-code"></i> Step 1: Include Dependencies</h4>
                 <p>Add these to your HTML <code>&lt;head&gt;</code> section:</p>
-                <div class="example-code">
-&lt;!-- Font Awesome Icons --&gt;
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;!-- Font Awesome Icons --&gt;
 &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
 
 &lt;!-- Google Fonts --&gt;
 &lt;link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"&gt;
 
 &lt;!-- Cyberpunk CSS Framework --&gt;
-&lt;link rel="stylesheet" href="cyberpunk.css"&gt;
+&lt;link rel="stylesheet" href="cyberpunk.css"&gt;</pre>
                 </div>
             </div>
             
             <div class="usage-step">
                 <h4><i class="fas fa-code"></i> Step 2: Basic HTML Structure</h4>
                 <p>Use this basic template to get started:</p>
-                <div class="example-code">
-&lt;!DOCTYPE html&gt;
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -148,15 +128,17 @@
     
     &lt;script src="your-scripts.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;
+&lt;/html&gt;</pre>
                 </div>
             </div>
         </section>
         
         <!-- Color Palette -->
         <section id="colors" class="section">
-            <h2><i class="fas fa-palette"></i> Color Palette</h2>
-            <p>The framework includes a comprehensive set of cyberpunk-themed colors available as CSS variables and utility classes.</p>
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-palette"></i> Color Palette</h2>
+                <p class="section-subtitle">The framework includes a comprehensive set of cyberpunk-themed colors available as CSS variables and utility classes.</p>
+            </div>
             
             <div class="component-preview">
                 <h3>Core Colors</h3>
@@ -211,24 +193,89 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="component-preview">
+                <h3>System Colors</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--success);"></div>
+                        <h4>Success</h4>
+                        <p><code>--success</code><br>#00ff41</p>
+                        <p class="text-success">.text-success</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--warning);"></div>
+                        <h4>Warning</h4>
+                        <p><code>--warning</code><br>#ff5500</p>
+                        <p class="text-warning">.text-warning</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--error);"></div>
+                        <h4>Error</h4>
+                        <p><code>--error</code><br>#ff0055</p>
+                        <p class="text-error">.text-error</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--info);"></div>
+                        <h4>Info</h4>
+                        <p><code>--info</code><br>#00a3ff</p>
+                        <p class="text-info">.text-info</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--yellow);"></div>
+                        <h4>Yellow</h4>
+                        <p><code>--yellow</code><br>#ffdd00</p>
+                        <p class="text-yellow">.text-yellow</p>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <!-- Components -->
         <section id="components" class="section">
-            <h2><i class="fas fa-cube"></i> Components</h2>
-            <p>Pre-styled components ready to use in your projects.</p>
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-cube"></i> Components</h2>
+                <p class="section-subtitle">Pre-styled components ready to use in your projects.</p>
+            </div>
             
             <div class="component-preview">
                 <h3>Buttons</h3>
                 <p>Multiple button styles for different actions:</p>
                 <div class="example-container">
-                    <a href="#" class="btn btn-primary m-1"><i class="fas fa-rocket"></i> Primary Button</a>
-                    <a href="#" class="btn btn-secondary m-1"><i class="fas fa-code"></i> Secondary Button</a>
-                    <a href="#" class="btn btn-warning m-1"><i class="fas fa-exclamation-triangle"></i> Warning Button</a>
+                    <h5>Sizes</h5>
+                    <div class="my-2">
+                        <a href="#" class="btn btn-primary btn-sm m-1"><i class="fas fa-rocket"></i> Small</a>
+                        <a href="#" class="btn btn-primary m-1"><i class="fas fa-rocket"></i> Regular</a>
+                        <a href="#" class="btn btn-primary btn-lg m-1"><i class="fas fa-rocket"></i> Large</a>
+                        <a href="#" class="btn btn-primary btn-block m-1"><i class="fas fa-rocket"></i> Block</a>
+                    </div>
+                    
+                    <h5 class="mt-3">Styles</h5>
+                    <div class="my-2">
+                        <a href="#" class="btn btn-primary m-1"><i class="fas fa-rocket"></i> Primary</a>
+                        <a href="#" class="btn btn-secondary m-1"><i class="fas fa-code"></i> Secondary</a>
+                        <a href="#" class="btn btn-warning m-1"><i class="fas fa-exclamation-triangle"></i> Warning</a>
+                        <a href="#" class="btn btn-success m-1"><i class="fas fa-check"></i> Success</a>
+                        <a href="#" class="btn btn-error m-1"><i class="fas fa-times"></i> Error</a>
+                        <a href="#" class="btn btn-info m-1"><i class="fas fa-info"></i> Info</a>
+                        <a href="#" class="btn btn-outline m-1"><i class="fas fa-cog"></i> Outline</a>
+                    </div>
+                    
+                    <h5 class="mt-3">Button Group</h5>
+                    <div class="btn-group my-2">
+                        <button class="btn btn-secondary">Left</button>
+                        <button class="btn btn-secondary">Middle</button>
+                        <button class="btn btn-secondary">Right</button>
+                    </div>
+                    
                     <button class="btn btn-primary m-1">Button Element</button>
                 </div>
-                <div class="example-code">
-&lt;a href="#" class="btn btn-primary"&gt;
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;a href="#" class="btn btn-primary"&gt;
     &lt;i class="fas fa-rocket"&gt;&lt;/i&gt; Primary Button
 &lt;/a&gt;
 
@@ -239,6 +286,12 @@
 &lt;a href="#" class="btn btn-warning"&gt;
     &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt; Warning Button
 &lt;/a&gt;
+
+&lt;div class="btn-group"&gt;
+    &lt;button class="btn btn-secondary"&gt;Left&lt;/button&gt;
+    &lt;button class="btn btn-secondary"&gt;Middle&lt;/button&gt;
+    &lt;button class="btn btn-secondary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;</pre>
                 </div>
             </div>
             
@@ -264,15 +317,19 @@
                         <div class="status status-online">ACTIVE</div>
                     </div>
                 </div>
-                <div class="example-code">
-&lt;div class="card"&gt;
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="card"&gt;
     &lt;div class="card-header"&gt;
         &lt;i class="fas fa-microchip"&gt;&lt;/i&gt;
         &lt;h4&gt;Cyber Card&lt;/h4&gt;
     &lt;/div&gt;
     &lt;p&gt;This is a cyberpunk-styled card component.&lt;/p&gt;
     &lt;a href="#" class="btn btn-secondary"&gt;Learn More&lt;/a&gt;
-&lt;/div&gt;
+&lt;/div&gt;</pre>
                 </div>
             </div>
             
@@ -283,9 +340,16 @@
                     <span class="status status-online m-1"><i class="fas fa-circle"></i> ONLINE</span>
                     <span class="status status-offline m-1"><i class="fas fa-circle"></i> OFFLINE</span>
                     <span class="status status-warning m-1"><i class="fas fa-circle"></i> WARNING</span>
+                    <span class="status status-error m-1"><i class="fas fa-circle"></i> ERROR</span>
+                    <span class="status status-info m-1"><i class="fas fa-circle"></i> INFO</span>
+                    <span class="status status-pending m-1"><i class="fas fa-circle"></i> PENDING</span>
                 </div>
-                <div class="example-code">
-&lt;span class="status status-online"&gt;
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;span class="status status-online"&gt;
     &lt;i class="fas fa-circle"&gt;&lt;/i&gt; ONLINE
 &lt;/span&gt;
 
@@ -295,41 +359,135 @@
 
 &lt;span class="status status-warning"&gt;
     &lt;i class="fas fa-circle"&gt;&lt;/i&gt; WARNING
-&lt;/span&gt;
+&lt;/span&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Badges</h3>
+                <p>Small status or labeling badges:</p>
+                <div class="example-container">
+                    <span class="badge badge-primary m-1">Primary</span>
+                    <span class="badge badge-secondary m-1">Secondary</span>
+                    <span class="badge badge-success m-1">Success</span>
+                    <span class="badge badge-warning m-1">Warning</span>
+                    <span class="badge badge-error m-1">Error</span>
+                    <span class="badge badge-outline badge-outline-primary m-1">Outline</span>
+                    <span class="badge badge-pill badge-primary m-1">Pill</span>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-outline badge-outline-primary"&gt;Outline&lt;/span&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Alerts</h3>
+                <p>Display important messages to users:</p>
+                <div class="example-container">
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="alert-body">System initialized successfully!</div>
+                        <button class="alert-close">&times;</button>
+                    </div>
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="alert-body">Warning: System temperature is high.</div>
+                        <button class="alert-close">&times;</button>
+                    </div>
+                    <div class="alert alert-error">
+                        <i class="fas fa-times-circle"></i>
+                        <div class="alert-body">Error: Connection lost to neural network.</div>
+                        <button class="alert-close">&times;</button>
+                    </div>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <div class="alert-body">Information: System update available.</div>
+                        <button class="alert-close">&times;</button>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="alert alert-success"&gt;
+    &lt;i class="fas fa-check-circle"&gt;&lt;/i&gt;
+    &lt;div class="alert-body"&gt;System initialized successfully!&lt;/div&gt;
+    &lt;button class="alert-close"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-warning"&gt;
+    &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
+    &lt;div class="alert-body"&gt;Warning: System temperature is high.&lt;/div&gt;
+    &lt;button class="alert-close"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</pre>
                 </div>
             </div>
             
             <div class="component-preview">
                 <h3>Tables</h3>
                 <p>Styled tables for data presentation:</p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>System</th>
-                            <th>Status</th>
-                            <th>Uptime</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Neural Network</td>
-                            <td><span class="status status-online">ACTIVE</span></td>
-                            <td>99.7%</td>
-                        </tr>
-                        <tr>
-                            <td>GPS Module</td>
-                            <td><span class="status status-online">LOCKED</span></td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Firewall</td>
-                            <td><span class="status status-warning">WARNING</span></td>
-                            <td>87.3%</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="example-code">
-&lt;table class="table"&gt;
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>System</th>
+                                <th>Status</th>
+                                <th>Uptime</th>
+                                <th>Load</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Neural Network</td>
+                                <td><span class="status status-online">ACTIVE</span></td>
+                                <td>99.7%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%;"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn btn-secondary btn-sm">Manage</button></td>
+                            </tr>
+                            <tr>
+                                <td>GPS Module</td>
+                                <td><span class="status status-online">LOCKED</span></td>
+                                <td>100%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 22%;"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn btn-secondary btn-sm">Manage</button></td>
+                            </tr>
+                            <tr>
+                                <td>Firewall</td>
+                                <td><span class="status status-warning">WARNING</span></td>
+                                <td>87.3%</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 78%;"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn btn-warning btn-sm">Fix</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;table class="table table-striped table-hover"&gt;
     &lt;thead&gt;
         &lt;tr&gt;
             &lt;th&gt;System&lt;/th&gt;
@@ -344,7 +502,7 @@
             &lt;td&gt;99.7%&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;/table&gt;</pre>
                 </div>
             </div>
             
@@ -354,7 +512,7 @@
                 <div class="code-block">
                     <div class="code-header">
                         <div class="code-language">PYTHON</div>
-                        <button class="btn btn-secondary btn-sm">COPY</button>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
                     </div>
                     <pre>
 def cyberpunk_function():
@@ -363,7 +521,30 @@ def cyberpunk_function():
     status = "ONLINE"
     return status</pre>
                 </div>
-                <div class="example-code">
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">JAVASCRIPT</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>
+class CyberSystem {
+    constructor() {
+        this.status = 'online';
+        this.version = '2.3.5';
+    }
+    
+    initialize() {
+        console.log(`CyberSystem ${this.version} starting...`);
+        return this.status;
+    }
+}</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>
 &lt;div class="code-block"&gt;
     &lt;div class="code-header"&gt;
         &lt;div class="code-language"&gt;PYTHON&lt;/div&gt;
@@ -374,23 +555,87 @@ def cyberpunk_function():
     print("System initialized...")
     status = "ONLINE"
     return status&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/div&gt;</pre>
                 </div>
             </div>
             
             <div class="component-preview">
                 <h3>Progress Bars</h3>
                 <p>Show progress with animated bars:</p>
-                <div class="mb-2">
-                    <p>System Initialization</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%;"></div>
+                <div class="example-container">
+                    <div class="mb-3">
+                        <div class="progress-label">
+                            <span>System Initialization</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="progress-label">
+                            <span>Data Upload</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-lg">
+                            <div class="progress-fill" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="progress-label">
+                            <span>Processing</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-sm progress-bar-rounded">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="example-code">
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="progress-label"&gt;
+    &lt;span&gt;System Initialization&lt;/span&gt;
+    &lt;span&gt;75%&lt;/span&gt;
+&lt;/div&gt;
 &lt;div class="progress-bar"&gt;
     &lt;div class="progress-fill" style="width: 75%;"&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Spinners</h3>
+                <p>Loading indicators for async operations:</p>
+                <div class="example-container">
+                    <div class="flex items-center gap-3">
+                        <div class="spinner spinner-sm"></div>
+                        <div class="spinner"></div>
+                        <div class="spinner spinner-lg"></div>
+                        <div class="spinner spinner-primary"></div>
+                        <div class="spinner spinner-secondary"></div>
+                        <div class="spinner spinner-success"></div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary">
+                            <div class="spinner spinner-sm mr-2"></div>
+                            Loading...
+                        </button>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="spinner"&gt;&lt;/div&gt;
+&lt;div class="spinner spinner-sm"&gt;&lt;/div&gt;
+&lt;div class="spinner spinner-lg"&gt;&lt;/div&gt;
+&lt;div class="spinner spinner-primary"&gt;&lt;/div&gt;</pre>
                 </div>
             </div>
             
@@ -401,18 +646,73 @@ def cyberpunk_function():
                     <button class="tab active" onclick="switchTab(event, 'tab1')">System</button>
                     <button class="tab" onclick="switchTab(event, 'tab2')">Network</button>
                     <button class="tab" onclick="switchTab(event, 'tab3')">Security</button>
+                    <button class="tab" onclick="switchTab(event, 'tab4')">Logs</button>
                 </div>
                 <div id="tab1" class="tab-content active">
                     <p>System diagnostics show all systems are operational.</p>
+                    <div class="grid grid-cols-3 gap-3 mt-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-microchip"></i>
+                                <h5>CPU</h5>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-memory"></i>
+                                <h5>Memory</h5>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 82%;"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-hdd"></i>
+                                <h5>Storage</h5>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div id="tab2" class="tab-content">
                     <p>Network status: Connected to 5 nodes.</p>
+                    <div class="terminal mt-3">
+                        > Network scan complete<br>
+                        > 12 active nodes detected<br>
+                        > Bandwidth: 245 Mbps<br>
+                        > Latency: 24ms<br>
+                        > Security: ENCRYPTED
+                    </div>
                 </div>
                 <div id="tab3" class="tab-content">
                     <p>Security level: MAXIMUM. Firewall active.</p>
+                    <div class="alert alert-success mt-3">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="alert-body">All security systems are active and monitoring.</div>
+                    </div>
                 </div>
-                <div class="example-code">
-&lt;div class="tabs"&gt;
+                <div id="tab4" class="tab-content">
+                    <p>System logs:</p>
+                    <div class="terminal">
+                        > [12:34:23] System initialized<br>
+                        > [12:34:25] Neural network online<br>
+                        > [12:34:30] Firewall activated<br>
+                        > [12:35:45] Data encryption enabled<br>
+                        > [12:36:10] All systems nominal
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="tabs"&gt;
     &lt;button class="tab active" onclick="switchTab(event, 'tab1')"&gt;System&lt;/button&gt;
     &lt;button class="tab" onclick="switchTab(event, 'tab2')"&gt;Network&lt;/button&gt;
     &lt;button class="tab" onclick="switchTab(event, 'tab3')"&gt;Security&lt;/button&gt;
@@ -424,79 +724,1111 @@ def cyberpunk_function():
 
 &lt;div id="tab2" class="tab-content"&gt;
     &lt;p&gt;Network status: Connected to 5 nodes.&lt;/p&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Navs & Pills</h3>
+                <p>Alternative navigation styles:</p>
+                <div class="example-container">
+                    <h5>Nav Tabs</h5>
+                    <div class="nav-tabs mb-4">
+                        <a href="#" class="nav-link active">Dashboard</a>
+                        <a href="#" class="nav-link">Analytics</a>
+                        <a href="#" class="nav-link">Settings</a>
+                        <a href="#" class="nav-link">Admin</a>
+                    </div>
+                    
+                    <h5>Nav Pills</h5>
+                    <div class="nav-pills">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="#" class="nav-link">Profile</a>
+                        <a href="#" class="nav-link">Messages</a>
+                        <a href="#" class="nav-link">Settings</a>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;!-- Nav Tabs --&gt;
+&lt;div class="nav-tabs"&gt;
+    &lt;a href="#" class="nav-link active"&gt;Dashboard&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Analytics&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Settings&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div id="tab3" class="tab-content"&gt;
-    &lt;p&gt;Security level: MAXIMUM. Firewall active.&lt;/p&gt;
+&lt;!-- Nav Pills --&gt;
+&lt;div class="nav-pills"&gt;
+    &lt;a href="#" class="nav-link active"&gt;Home&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Profile&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Messages&lt;/a&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Pagination</h3>
+                <p>Navigate through multiple pages:</p>
+                <div class="example-container">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;ul class="pagination"&gt;
+    &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="page-item active"&gt;&lt;a class="page-link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Breadcrumbs</h3>
+                <p>Show navigation hierarchy:</p>
+                <div class="example-container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Systems</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Neural Network</a></li>
+                            <li class="breadcrumb-item active"><a href="#" class="breadcrumb-link">Configuration</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;ol class="breadcrumb"&gt;
+    &lt;li class="breadcrumb-item"&gt;&lt;a href="#" class="breadcrumb-link"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;&lt;a href="#" class="breadcrumb-link"&gt;Systems&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumb-item active"&gt;&lt;a href="#" class="breadcrumb-link"&gt;Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>List Groups</h3>
+                <p>Display lists of items:</p>
+                <div class="example-container">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-server text-neon-blue"></i>
+                            <span>Main Server</span>
+                            <span class="ml-auto"><span class="status status-online">Online</span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-database text-neon-purple"></i>
+                            <span>Database Cluster</span>
+                            <span class="ml-auto"><span class="status status-online">Online</span></span>
+                        </li>
+                        <li class="list-group-item active">
+                            <i class="fas fa-network-wired text-matrix"></i>
+                            <span>Network Router</span>
+                            <span class="ml-auto"><span class="status status-warning">Warning</span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-shield-alt text-success"></i>
+                            <span>Security System</span>
+                            <span class="ml-auto"><span class="status status-online">Online</span></span>
+                        </li>
+                        <li class="list-group-item disabled">
+                            <i class="fas fa-backup text-muted"></i>
+                            <span>Backup System</span>
+                            <span class="ml-auto"><span class="status status-offline">Offline</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;ul class="list-group"&gt;
+    &lt;li class="list-group-item"&gt;
+        &lt;i class="fas fa-server"&gt;&lt;/i&gt;
+        &lt;span&gt;Main Server&lt;/span&gt;
+        &lt;span class="status status-online"&gt;Online&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="list-group-item active"&gt;
+        &lt;i class="fas fa-network-wired"&gt;&lt;/i&gt;
+        &lt;span&gt;Network Router&lt;/span&gt;
+        &lt;span class="status status-warning"&gt;Warning&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Modals</h3>
+                <p>Dialog boxes/popups:</p>
+                <div class="example-container">
+                    <button class="btn btn-primary" onclick="openModal('exampleModal')">Open Modal</button>
+                    <button class="btn btn-secondary" onclick="openModal('confirmModal')">Confirm Dialog</button>
+                    
+                    <!-- Example Modal -->
+                    <div class="modal" id="exampleModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title"><i class="fas fa-robot"></i> System Configuration</h3>
+                                <button class="modal-close" onclick="closeModal('exampleModal')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Configure your cybernetic systems here. All changes will take effect immediately.</p>
+                                <div class="form-group">
+                                    <label class="form-label">System Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter system name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Security Level</label>
+                                    <select class="form-select">
+                                        <option>Low</option>
+                                        <option selected>Medium</option>
+                                        <option>High</option>
+                                        <option>Maximum</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Enable neural interface
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" onclick="closeModal('exampleModal')">Cancel</button>
+                                <button class="btn btn-primary" onclick="closeModal('exampleModal')">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Confirm Modal -->
+                    <div class="modal" id="confirmModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title"><i class="fas fa-exclamation-triangle text-warning"></i> Confirm Action</h3>
+                                <button class="modal-close" onclick="closeModal('confirmModal')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to reboot the neural network? This will temporarily disconnect all interfaces.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" onclick="closeModal('confirmModal')">Cancel</button>
+                                <button class="btn btn-warning" onclick="closeModal('confirmModal')">Reboot System</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;!-- Modal Trigger --&gt;
+&lt;button class="btn btn-primary" onclick="openModal('exampleModal')"&gt;Open Modal&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal" id="exampleModal"&gt;
+    &lt;div class="modal-content"&gt;
+        &lt;div class="modal-header"&gt;
+            &lt;h3 class="modal-title"&gt;System Configuration&lt;/h3&gt;
+            &lt;button class="modal-close" onclick="closeModal('exampleModal')"&gt;&amp;times;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+            &lt;p&gt;Configure your cybernetic systems here.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-footer"&gt;
+            &lt;button class="btn btn-secondary" onclick="closeModal('exampleModal')"&gt;Cancel&lt;/button&gt;
+            &lt;button class="btn btn-primary" onclick="closeModal('exampleModal')"&gt;Save&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Tooltips</h3>
+                <p>Small popup information on hover:</p>
+                <div class="example-container">
+                    <button class="btn btn-secondary tooltip m-1">
+                        Hover me
+                        <span class="tooltip-text">This is a tooltip with helpful information</span>
+                    </button>
+                    
+                    <a href="#" class="nav-link tooltip m-1">
+                        <i class="fas fa-info-circle"></i> Info
+                        <span class="tooltip-text">Click for more information about the system</span>
+                    </a>
+                    
+                    <span class="status status-online tooltip m-1">
+                        <i class="fas fa-circle"></i> ONLINE
+                        <span class="tooltip-text">System is fully operational and connected</span>
+                    </span>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;button class="btn btn-secondary tooltip"&gt;
+    Hover me
+    &lt;span class="tooltip-text"&gt;This is a tooltip with helpful information&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;a href="#" class="nav-link tooltip"&gt;
+    &lt;i class="fas fa-info-circle"&gt;&lt;/i&gt; Info
+    &lt;span class="tooltip-text"&gt;Click for more information&lt;/span&gt;
+&lt;/a&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Popovers</h3>
+                <p>Popups with more content than tooltips:</p>
+                <div class="example-container">
+                    <button class="btn btn-primary" onclick="togglePopover('systemPopover')">
+                        System Info
+                    </button>
+                    
+                    <div class="popover" id="systemPopover">
+                        <div class="popover-header">System Status</div>
+                        <div class="popover-body">
+                            <p>All systems are operating within normal parameters.</p>
+                            <ul>
+                                <li>CPU: 45% load</li>
+                                <li>Memory: 62% used</li>
+                                <li>Network: 245 Mbps</li>
+                                <li>Storage: 1.2 TB free</li>
+                            </ul>
+                        </div>
+                        <div class="popover-arrow"></div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;button class="btn btn-primary" onclick="togglePopover('systemPopover')"&gt;
+    System Info
+&lt;/button&gt;
+
+&lt;div class="popover" id="systemPopover"&gt;
+    &lt;div class="popover-header"&gt;System Status&lt;/div&gt;
+    &lt;div class="popover-body"&gt;
+        &lt;p&gt;All systems are operating normally.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="popover-arrow"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Toasts</h3>
+                <p>Notification messages:</p>
+                <div class="example-container">
+                    <button class="btn btn-success" onclick="showToast('successToast')">Success Toast</button>
+                    <button class="btn btn-warning" onclick="showToast('warningToast')">Warning Toast</button>
+                    <button class="btn btn-error" onclick="showToast('errorToast')">Error Toast</button>
+                    <button class="btn btn-info" onclick="showToast('infoToast')">Info Toast</button>
+                    
+                    <!-- Toast Examples -->
+                    <div class="toast toast-success" id="successToast">
+                        <div class="toast-header">
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Success</strong>
+                        </div>
+                        <div class="toast-body">System initialized successfully!</div>
+                        <button class="toast-close" onclick="hideToast('successToast')">&times;</button>
+                    </div>
+                    
+                    <div class="toast toast-warning" id="warningToast">
+                        <div class="toast-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Warning</strong>
+                        </div>
+                        <div class="toast-body">System temperature is approaching critical levels.</div>
+                        <button class="toast-close" onclick="hideToast('warningToast')">&times;</button>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="toast toast-success"&gt;
+    &lt;div class="toast-header"&gt;
+        &lt;i class="fas fa-check-circle"&gt;&lt;/i&gt;
+        &lt;strong&gt;Success&lt;/strong&gt;
+    &lt;/div&gt;
+    &lt;div class="toast-body"&gt;System initialized successfully!&lt;/div&gt;
+    &lt;button class="toast-close"&gt;&amp;times;&lt;/button&gt;
 &lt;/div&gt;
+
+&lt;div class="toast toast-warning"&gt;
+    &lt;div class="toast-header"&gt;
+        &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
+        &lt;strong&gt;Warning&lt;/strong&gt;
+    &lt;/div&gt;
+    &lt;div class="toast-body"&gt;System temperature is high.&lt;/div&gt;
+    &lt;button class="toast-close"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Collapse</h3>
+                <p>Expand/collapse content sections:</p>
+                <div class="example-container">
+                    <div class="collapse active">
+                        <div class="collapse-header" onclick="toggleCollapse('collapse1')">
+                            <div class="collapse-title">System Specifications</div>
+                            <div class="collapse-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="collapse-content">
+                            <p>Processor: Neural Quantum CPU v3.5</p>
+                            <p>Memory: 128TB Holographic RAM</p>
+                            <p>Storage: 10ZB Quantum Drive</p>
+                            <p>Network: 800Gbps Cyberlink</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collapse">
+                        <div class="collapse-header" onclick="toggleCollapse('collapse2')">
+                            <div class="collapse-title">Network Configuration</div>
+                            <div class="collapse-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="collapse-content">
+                            <p>IP Address: 192.168.1.100</p>
+                            <p>Subnet Mask: 255.255.255.0</p>
+                            <p>Gateway: 192.168.1.1</p>
+                            <p>DNS: 8.8.8.8, 8.8.4.4</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="collapse active"&gt;
+    &lt;div class="collapse-header" onclick="toggleCollapse('collapse1')"&gt;
+        &lt;div class="collapse-title"&gt;System Specifications&lt;/div&gt;
+        &lt;div class="collapse-icon"&gt;&lt;i class="fas fa-chevron-down"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="collapse-content"&gt;
+        &lt;p&gt;Processor: Neural Quantum CPU v3.5&lt;/p&gt;
+        &lt;p&gt;Memory: 128TB Holographic RAM&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Accordion</h3>
+                <p>Vertical expand/collapse sections:</p>
+                <div class="example-container">
+                    <div class="accordion">
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion('accordion1')">
+                                <div class="accordion-title">Hardware Status</div>
+                                <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="accordion-content">
+                                <p>All hardware components are functioning normally.</p>
+                                <div class="status status-online">OPTIMAL</div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <div class="accordion-header" onclick="toggleAccordion('accordion2')">
+                                <div class="accordion-title">Software Systems</div>
+                                <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Operating System: CyberOS v12.5</p>
+                                <p>Security Suite: Active</p>
+                                <p>Updates: Current</p>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <div class="accordion-header" onclick="toggleAccordion('accordion3')">
+                                <div class="accordion-title">Network Services</div>
+                                <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Firewall: Active</p>
+                                <p>VPN: Connected</p>
+                                <p>Bandwidth: 245 Mbps</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="accordion"&gt;
+    &lt;div class="accordion-item active"&gt;
+        &lt;div class="accordion-header" onclick="toggleAccordion('accordion1')"&gt;
+            &lt;div class="accordion-title"&gt;Hardware Status&lt;/div&gt;
+            &lt;div class="accordion-icon"&gt;&lt;i class="fas fa-chevron-down"&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="accordion-content"&gt;
+            &lt;p&gt;All hardware components are functioning normally.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Avatars</h3>
+                <p>User profile images/icons:</p>
+                <div class="example-container">
+                    <div class="flex items-center gap-3">
+                        <div class="avatar avatar-sm">
+                            <span>AI</span>
+                        </div>
+                        <div class="avatar">
+                            <span>CY</span>
+                        </div>
+                        <div class="avatar avatar-lg">
+                            <span>NB</span>
+                        </div>
+                        <div class="avatar avatar-xl">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="avatar">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Cyberpunk" alt="Avatar">
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="avatar avatar-sm"&gt;
+    &lt;span&gt;AI&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar"&gt;
+    &lt;span&gt;CY&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar avatar-lg"&gt;
+    &lt;i class="fas fa-robot"&gt;&lt;/i&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar"&gt;
+    &lt;img src="avatar.jpg" alt="Avatar"&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Dropdowns</h3>
+                <p>Toggleable contextual menus:</p>
+                <div class="example-container">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle">
+                            <i class="fas fa-cog"></i> Settings
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cogs"></i> System</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-shield-alt"></i> Security</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="dropdown"&gt;
+    &lt;button class="btn btn-secondary dropdown-toggle"&gt;
+        &lt;i class="fas fa-cog"&gt;&lt;/i&gt; Settings
+        &lt;i class="fas fa-chevron-down"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class="dropdown-menu"&gt;
+        &lt;a href="#" class="dropdown-item"&gt;&lt;i class="fas fa-user"&gt;&lt;/i&gt; Profile&lt;/a&gt;
+        &lt;a href="#" class="dropdown-item"&gt;&lt;i class="fas fa-cogs"&gt;&lt;/i&gt; System&lt;/a&gt;
+        &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+        &lt;a href="#" class="dropdown-item"&gt;&lt;i class="fas fa-sign-out-alt"&gt;&lt;/i&gt; Logout&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Media Objects</h3>
+                <p>Content with aligned media:</p>
+                <div class="example-container">
+                    <div class="media">
+                        <div class="media-img">
+                            <div class="avatar avatar-lg">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-title">AI Assistant</h4>
+                            <p class="media-content">System diagnostics complete. All components are functioning within optimal parameters. Neural network is online and ready for tasks.</p>
+                            <small class="text-muted">Posted 2 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="media">
+                        <div class="media-img">
+                            <div class="avatar">
+                                <span>AD</span>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-title">Admin User</h4>
+                            <p class="media-content">Security update has been applied successfully. All firewalls are now running version 3.5.2.</p>
+                            <small class="text-muted">Posted 1 hour ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="media"&gt;
+    &lt;div class="media-img"&gt;
+        &lt;div class="avatar"&gt;
+            &lt;span&gt;AI&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="media-body"&gt;
+        &lt;h4 class="media-title"&gt;AI Assistant&lt;/h4&gt;
+        &lt;p class="media-content"&gt;System diagnostics complete.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Carousel</h3>
+                <p>Image/content slideshow:</p>
+                <div class="example-container">
+                    <div class="carousel" id="demoCarousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="carousel-img" style="background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));"></div>
+                                <div class="carousel-caption">
+                                    <h3>Neural Network</h3>
+                                    <p>Advanced AI systems for real-time data processing</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-img" style="background: linear-gradient(135deg, var(--neon-blue), var(--matrix-green));"></div>
+                                <div class="carousel-caption">
+                                    <h3>Cybersecurity</h3>
+                                    <p>Multi-layered protection for your digital assets</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-img" style="background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));"></div>
+                                <div class="carousel-caption">
+                                    <h3>Data Analytics</h3>
+                                    <p>Real-time insights from massive datasets</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-control" onclick="prevSlide('demoCarousel')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control" onclick="nextSlide('demoCarousel')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide('demoCarousel', 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide('demoCarousel', 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide('demoCarousel', 2)"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="carousel" id="myCarousel"&gt;
+    &lt;div class="carousel-inner"&gt;
+        &lt;div class="carousel-item active"&gt;
+            &lt;img src="slide1.jpg" class="carousel-img" alt="Slide 1"&gt;
+            &lt;div class="carousel-caption"&gt;
+                &lt;h3&gt;Neural Network&lt;/h3&gt;
+                &lt;p&gt;Advanced AI systems&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel-controls"&gt;
+        &lt;button class="carousel-control" onclick="prevSlide('myCarousel')"&gt;
+            &lt;i class="fas fa-chevron-left"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;button class="carousel-control" onclick="nextSlide('myCarousel')"&gt;
+            &lt;i class="fas fa-chevron-right"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel-indicators"&gt;
+        &lt;button class="carousel-indicator active"&gt;&lt;/button&gt;
+        &lt;button class="carousel-indicator"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Jumbotron</h3>
+                <p>Large featured content area:</p>
+                <div class="example-container">
+                    <div class="jumbotron">
+                        <h1 class="jumbotron-title">CYBERNETIC SYSTEMS</h1>
+                        <p class="jumbotron-lead">Experience the future of human-computer interface with our advanced neural integration technology. Upgrade your capabilities beyond human limits.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-brain"></i> Learn More</a>
+                            <a href="#" class="btn btn-secondary btn-lg"><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="jumbotron"&gt;
+    &lt;h1 class="jumbotron-title"&gt;CYBERNETIC SYSTEMS&lt;/h1&gt;
+    &lt;p class="jumbotron-lead"&gt;Experience the future of human-computer interface.&lt;/p&gt;
+    &lt;div class="mt-3"&gt;
+        &lt;a href="#" class="btn btn-primary btn-lg"&gt;Learn More&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Forms -->
+        <section id="forms" class="section">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-edit"></i> Forms</h2>
+                <p class="section-subtitle">Styled form controls for user input and interaction.</p>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Basic Form</h3>
+                <p>Standard form with various input types:</p>
+                <div class="example-container">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="Enter your username">
+                            <div class="form-text">Your unique system identifier.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="Enter your password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Security Level</label>
+                            <select class="form-select">
+                                <option>Select security level</option>
+                                <option>Basic</option>
+                                <option>Standard</option>
+                                <option>Enhanced</option>
+                                <option>Maximum</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">System Preferences</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="neuralInterface">
+                                <label class="form-check-label" for="neuralInterface">Enable neural interface</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="encryption">
+                                <label class="form-check-label" for="encryption">Enable data encryption</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="notifications">
+                                <label class="form-check-label" for="notifications">Enable system notifications</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Access Level</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="accessLevel" id="accessBasic">
+                                <label class="form-check-label" for="accessBasic">Basic Access</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="accessLevel" id="accessAdmin">
+                                <label class="form-check-label" for="accessAdmin">Administrator</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="accessLevel" id="accessRoot">
+                                <label class="form-check-label" for="accessRoot">Root Access</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">System Performance</label>
+                            <input type="range" class="form-range" min="0" max="100" value="75">
+                            <div class="form-text">Adjust system performance level.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">System Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe your system configuration"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="terms">
+                                <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Configuration</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </form>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;form&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="form-label"&gt;Username&lt;/label&gt;
+        &lt;input type="text" class="form-control" placeholder="Enter username"&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label class="form-label"&gt;Email Address&lt;/label&gt;
+        &lt;input type="email" class="form-control" placeholder="Enter email"&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label class="form-label"&gt;Security Level&lt;/label&gt;
+        &lt;select class="form-select"&gt;
+            &lt;option&gt;Basic&lt;/option&gt;
+            &lt;option&gt;Standard&lt;/option&gt;
+            &lt;option&gt;Enhanced&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;div class="form-check"&gt;
+            &lt;input type="checkbox" class="form-check-input" id="terms"&gt;
+            &lt;label class="form-check-label" for="terms"&gt;I agree to terms&lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Input Groups</h3>
+                <p>Form inputs with addons:</p>
+                <div class="example-container">
+                    <div class="form-group">
+                        <label class="form-label">System URL</label>
+                        <div class="input-group">
+                            <span class="input-group-text">https://</span>
+                            <input type="text" class="form-control" placeholder="system-address">
+                            <span class="input-group-text">.cyber</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">API Key</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="Enter API key" value="sk_live_1234567890abcdef">
+                            <button class="btn btn-secondary" type="button">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="btn btn-secondary" type="button">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Search System</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search systems...">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">HTML</div>
+                        <button class="btn btn-secondary btn-sm copy-btn">COPY</button>
+                    </div>
+                    <pre>&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;System URL&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+        &lt;span class="input-group-text"&gt;https://&lt;/span&gt;
+        &lt;input type="text" class="form-control" placeholder="system-address"&gt;
+        &lt;span class="input-group-text"&gt;.cyber&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;Search System&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+        &lt;input type="text" class="form-control" placeholder="Search..."&gt;
+        &lt;button class="btn btn-primary" type="button"&gt;
+            &lt;i class="fas fa-search"&gt;&lt;/i&gt; Search
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
                 </div>
             </div>
         </section>
         
         <!-- Examples -->
         <section id="examples" class="section">
-            <h2><i class="fas fa-code"></i> Complete Example</h2>
-            <p>Here's a complete example of a cyberpunk dashboard using the framework:</p>
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-code"></i> Complete Examples</h2>
+                <p class="section-subtitle">Real-world examples of cyberpunk interfaces using the framework.</p>
+            </div>
             
-            <div class="example-container">
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fas fa-server"></i>
-                            <h4 style="margin: 0;">Server Status</h4>
+            <div class="component-preview">
+                <h3>Dashboard Example</h3>
+                <p>A complete cyberpunk system dashboard:</p>
+                <div class="example-container">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-server"></i>
+                                <h4 style="margin: 0;">Server Status</h4>
+                            </div>
+                            <p>All servers are running optimally.</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%;"></div>
+                            </div>
+                            <p class="text-center text-success mt-2">95% Uptime</p>
                         </div>
-                        <p>All servers are running optimally.</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 95%;"></div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4 style="margin: 0;">Security</h4>
+                            </div>
+                            <p>Firewall and encryption active.</p>
+                            <div class="flex justify-between mt-2">
+                                <span class="status status-online">ENCRYPTED</span>
+                                <span class="status status-online">FIREWALL</span>
+                                <span class="status status-warning">SCANNING</span>
+                            </div>
                         </div>
-                        <p class="text-center text-success">95% Uptime</p>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-network-wired"></i>
+                                <h4 style="margin: 0;">Network</h4>
+                            </div>
+                            <p>Connected to 12 nodes.</p>
+                            <div class="terminal mt-2">
+                                > Network scan complete<br>
+                                > 12 active nodes detected<br>
+                                > Bandwidth: 245 Mbps<br>
+                                > Latency: 24ms
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fas fa-shield-alt"></i>
-                            <h4 style="margin: 0;">Security</h4>
-                        </div>
-                        <p>Firewall and encryption active.</p>
-                        <div class="flex justify-between mt-2">
-                            <span class="status status-online">ENCRYPTED</span>
-                            <span class="status status-online">FIREWALL</span>
+                    <div class="mt-4">
+                        <h4>System Controls</h4>
+                        <div class="flex gap-2 flex-wrap">
+                            <a href="#" class="btn btn-primary"><i class="fas fa-play"></i> Start System</a>
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-pause"></i> Pause</a>
+                            <a href="#" class="btn btn-warning"><i class="fas fa-power-off"></i> Emergency Stop</a>
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-cog"></i> Settings</a>
+                            <div class="dropdown ml-auto">
+                                <button class="btn btn-secondary dropdown-toggle">
+                                    <i class="fas fa-user"></i> Admin
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item"><i class="fas fa-user-cog"></i> Profile</a>
+                                    <a href="#" class="dropdown-item"><i class="fas fa-cogs"></i> Settings</a>
+                                    <a href="#" class="dropdown-item"><i class="fas fa-history"></i> Logs</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fas fa-network-wired"></i>
-                            <h4 style="margin: 0;">Network</h4>
-                        </div>
-                        <p>Connected to 12 nodes.</p>
-                        <div class="terminal">
-                            > Network scan complete<br>
-                            > 12 active nodes detected<br>
-                            > Bandwidth: 245 Mbps
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-3">
-                    <h4>System Controls</h4>
-                    <div class="flex gap-2 flex-wrap">
-                        <a href="#" class="btn btn-primary"><i class="fas fa-play"></i> Start System</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-pause"></i> Pause</a>
-                        <a href="#" class="btn btn-warning"><i class="fas fa-power-off"></i> Emergency Stop</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-cog"></i> Settings</a>
+                    <div class="mt-4">
+                        <h4>Recent Activity</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                    <th>System</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12:34:23</td>
+                                    <td>System initialized</td>
+                                    <td>Core</td>
+                                    <td><span class="status status-success">SUCCESS</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12:34:45</td>
+                                    <td>Neural network online</td>
+                                    <td>AI Module</td>
+                                    <td><span class="status status-success">SUCCESS</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12:35:10</td>
+                                    <td>Firewall activated</td>
+                                    <td>Security</td>
+                                    <td><span class="status status-success">SUCCESS</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12:36:05</td>
+                                    <td>Database connection lost</td>
+                                    <td>Storage</td>
+                                    <td><span class="status status-error">ERROR</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12:36:30</td>
+                                    <td>Database reconnected</td>
+                                    <td>Storage</td>
+                                    <td><span class="status status-success">SUCCESS</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
             
-            <div class="usage-step mt-3">
+            <div class="component-preview">
+                <h3>Login/Register Forms</h3>
+                <p>Authentication interfaces:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <h4 style="margin: 0;">System Login</h4>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control" placeholder="Enter username">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" placeholder="Enter password">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Remember me</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            <div class="text-center mt-3">
+                                <a href="#" class="text-neon-blue">Forgot password?</a>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-user-plus"></i>
+                            <h4 style="margin: 0;">Register</h4>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control" placeholder="Choose username">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" placeholder="Create password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" placeholder="Confirm password">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="agree">
+                                    <label class="form-check-label" for="agree">I agree to terms and conditions</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="usage-step mt-4">
                 <h4><i class="fas fa-lightbulb"></i> Tips & Best Practices</h4>
-                <ul style="padding-left: 1.5rem;">
-                    <li>Always include the <code>.scanlines</code> div for the full cyberpunk effect</li>
-                    <li>Use <code>.glitch</code> class on headings for animated glitch effects</li>
-                    <li>Combine utility classes for custom styling: <code>class="bg-dark p-3 rounded border-neon-blue"</code></li>
-                    <li>The framework is fully responsive - components adapt to screen size</li>
-                    <li>Use Font Awesome icons to enhance the cyberpunk aesthetic</li>
+                <ul class="list-group">
+                    <li class="list-group-item">Always include the <code>.scanlines</code> div for the full cyberpunk effect</li>
+                    <li class="list-group-item">Use <code>.glitch</code> class on headings for animated glitch effects</li>
+                    <li class="list-group-item">Combine utility classes for custom styling: <code>class="bg-dark p-3 rounded border-neon-blue"</code></li>
+                    <li class="list-group-item">The framework is fully responsive - components adapt to screen size</li>
+                    <li class="list-group-item">Use Font Awesome icons to enhance the cyberpunk aesthetic</li>
+                    <li class="list-group-item">Consider using the dark/light mode toggle for accessibility</li>
+                    <li class="list-group-item">All components are customizable with CSS variables</li>
                 </ul>
             </div>
         </section>
@@ -505,8 +1837,8 @@ def cyberpunk_function():
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div>
-                <h3><i class="fas fa-robot"></i> CYBERPUNK CSS</h3>
+            <div class="footer-section">
+                <h3 class="footer-title"><i class="fas fa-robot"></i> CYBERPUNK CSS</h3>
                 <p>A futuristic CSS framework for cyberpunk-themed applications.</p>
                 <div class="mt-2">
                     <span class="status status-online">
@@ -515,24 +1847,29 @@ def cyberpunk_function():
                 </div>
             </div>
             
-            <div>
-                <h3><i class="fas fa-link"></i> Quick Links</h3>
+            <div class="footer-section">
+                <h3 class="footer-title"><i class="fas fa-link"></i> Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#installation"><i class="fas fa-download"></i> Installation</a></li>
                     <li><a href="#colors"><i class="fas fa-palette"></i> Colors</a></li>
                     <li><a href="#components"><i class="fas fa-cube"></i> Components</a></li>
+                    <li><a href="#forms"><i class="fas fa-edit"></i> Forms</a></li>
                     <li><a href="#examples"><i class="fas fa-code"></i> Examples</a></li>
                 </ul>
             </div>
             
-            <div>
-                <h3><i class="fas fa-shield-alt"></i> License</h3>
+            <div class="footer-section">
+                <h3 class="footer-title"><i class="fas fa-shield-alt"></i> License</h3>
                 <p>MIT License - Free for personal and commercial use.</p>
                 <p class="mt-2 text-neon-blue">Made with <i class="fas fa-heart"></i> for the cyberpunk community</p>
+                <div class="mt-3">
+                    <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-book"></i> Documentation</a>
+                </div>
             </div>
         </div>
         
-        <div class="copyright text-center mt-3">
+        <div class="footer-bottom">
             <p>© 2023 Cyberpunk CSS Framework | Build: 7342-α</p>
             <p class="text-neon-purple mt-1">
                 <i class="fas fa-terminal"></i> System initialized successfully
@@ -561,24 +1898,24 @@ def cyberpunk_function():
         }
         
         // Copy button functionality for code blocks
-        document.querySelectorAll('.btn-secondary').forEach(button => {
-            if (button.textContent.includes('COPY')) {
-                button.addEventListener('click', function() {
-                    const codeBlock = this.closest('.code-block').querySelector('pre');
-                    const textToCopy = codeBlock.textContent;
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.closest('.code-block').querySelector('pre');
+                const textToCopy = codeBlock.textContent;
+                
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> COPIED!';
+                    this.classList.add('btn-success');
+                    this.classList.remove('btn-secondary');
                     
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        const originalText = this.innerHTML;
-                        this.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-                        this.style.background = 'rgba(0, 255, 65, 0.2)';
-                        
-                        setTimeout(() => {
-                            this.innerHTML = originalText;
-                            this.style.background = '';
-                        }, 2000);
-                    });
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-secondary');
+                    }, 2000);
                 });
-            }
+            });
         });
         
         // Smooth scrolling for anchor links
@@ -592,18 +1929,182 @@ def cyberpunk_function():
                 
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    const navbarNav = document.getElementById('navbarNav');
+                    navbarNav.classList.remove('active');
                 }
             });
         });
         
+        // Alert close functionality
+        document.querySelectorAll('.alert-close').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.alert').style.display = 'none';
+            });
+        });
+        
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+        }
+        
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+        
+        // Toast functionality
+        function showToast(toastId) {
+            const toast = document.getElementById(toastId);
+            toast.style.display = 'flex';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 5000);
+        }
+        
+        function hideToast(toastId) {
+            const toast = document.getElementById(toastId);
+            toast.style.display = 'none';
+        }
+        
+        // Collapse functionality
+        function toggleCollapse(collapseId) {
+            const collapse = document.getElementById(collapseId);
+            collapse.classList.toggle('active');
+        }
+        
+        // Accordion functionality
+        function toggleAccordion(accordionId) {
+            const accordion = document.getElementById(accordionId);
+            accordion.classList.toggle('active');
+        }
+        
+        // Carousel functionality
+        let currentSlide = 0;
+        
+        function nextSlide(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            
+            items[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + 1) % items.length;
+            
+            items[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+            
+            const inner = carousel.querySelector('.carousel-inner');
+            inner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        function prevSlide(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            
+            items[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide - 1 + items.length) % items.length;
+            
+            items[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+            
+            const inner = carousel.querySelector('.carousel-inner');
+            inner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        function goToSlide(carouselId, index) {
+            const carousel = document.getElementById(carouselId);
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            
+            items[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            currentSlide = index;
+            
+            items[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+            
+            const inner = carousel.querySelector('.carousel-inner');
+            inner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        // Popover functionality
+        function togglePopover(popoverId) {
+            const popover = document.getElementById(popoverId);
+            popover.classList.toggle('show');
+        }
+        
+        // Close popovers when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.popover') && !e.target.closest('[onclick*="togglePopover"]')) {
+                document.querySelectorAll('.popover').forEach(popover => {
+                    popover.classList.remove('show');
+                });
+            }
+        });
+        
+        // Mobile menu toggle
+        const navbarToggler = document.getElementById('navbarToggler');
+        const navbarNav = document.getElementById('navbarNav');
+        
+        navbarToggler.addEventListener('click', function() {
+            navbarNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.navbar') && navbarNav.classList.contains('active')) {
+                navbarNav.classList.remove('active');
+            }
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', function() {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.setAttribute('data-theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        });
+        
         // Console greeting
         window.addEventListener('load', function() {
-            console.log('%cCYBERPUNK CSS FRAMEWORK v2.3.5', 'color: #00f3ff; font-size: 18px; font-weight: bold;');
+            console.log('%cCYBERPUNK CSS FRAMEWORK v2.3.5', 'color: #00f3ff; font-size: 18px; font-weight: bold; text-shadow: 0 0 10px #00f3ff;');
             console.log('%c> Framework initialized successfully', 'color: #00ff41;');
             console.log('%c> Ready for cybernetic interface development', 'color: #00ff41;');
+            console.log('%c> All systems: ONLINE', 'color: #00ff41;');
+        });
+        
+        // Auto-initialize carousel
+        window.addEventListener('load', function() {
+            const demoCarousel = document.getElementById('demoCarousel');
+            if (demoCarousel) {
+                setInterval(() => {
+                    nextSlide('demoCarousel');
+                }, 5000);
+            }
         });
     </script>
 </body>
