@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk CSS Framework - Tutorial</title>
+    <!-- Required Dependencies -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Cyberpunk Framework -->
+    <link rel="stylesheet" href="cyberpunk.css">
+    <style>
+        /* Additional styles for tutorial page */
+        .example-container {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-md) 0;
+            border: 1px dashed var(--neon-blue);
+        }
+        
+        .example-code {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: var(--radius-sm);
+            padding: var(--space-md);
+            font-family: var(--font-mono);
+            color: var(--matrix-green);
+            margin: var(--space-md) 0;
+            overflow-x: auto;
+        }
+        
+        .component-preview {
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            background: rgba(10, 10, 30, 0.6);
+        }
+        
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            margin: var(--space-sm);
+            vertical-align: middle;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .usage-step {
+            background: rgba(26, 26, 46, 0.8);
+            border-left: 4px solid var(--neon-purple);
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scanlines Effect -->
+    <div class="scanlines"></div>
+    
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container flex justify-between items-center">
+            <div class="logo flex items-center gap-2">
+                <div class="text-neon-blue"><i class="fas fa-robot fa-2x"></i></div>
+                <div>
+                    <h1 class="glitch" style="margin: 0; font-size: 1.8rem;">CYBERPUNK CSS</h1>
+                    <p class="text-neon-pink" style="margin: 0; font-size: 0.9rem;">FRAMEWORK v2.3.5</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#installation" class="nav-link"><i class="fas fa-download"></i> Install</a></li>
+                    <li><a href="#colors" class="nav-link"><i class="fas fa-palette"></i> Colors</a></li>
+                    <li><a href="#components" class="nav-link"><i class="fas fa-cube"></i> Components</a></li>
+                    <li><a href="#examples" class="nav-link"><i class="fas fa-code"></i> Examples</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero mb-3">
+            <h1 class="glitch">CYBERPUNK CSS FRAMEWORK</h1>
+            <p class="text-center">A futuristic, neon-drenched CSS framework for building cyberpunk-themed interfaces with ease.</p>
+            <div class="mt-2 mb-2">
+                <span class="status status-online">
+                    <i class="fas fa-circle"></i> FRAMEWORK: ACTIVE
+                </span>
+                <span class="status status-online ml-2">
+                    <i class="fas fa-code"></i> VERSION: 2.3.5
+                </span>
+            </div>
+            <a href="#installation" class="btn btn-primary mt-2">
+                <i class="fas fa-rocket"></i> GET STARTED
+            </a>
+        </section>
+        
+        <!-- Installation -->
+        <section id="installation" class="section">
+            <h2><i class="fas fa-download"></i> Installation</h2>
+            <p>Getting started with the Cyberpunk CSS Framework is simple. Follow these steps:</p>
+            
+            <div class="usage-step">
+                <h4><i class="fas fa-file-code"></i> Step 1: Include Dependencies</h4>
+                <p>Add these to your HTML <code>&lt;head&gt;</code> section:</p>
+                <div class="example-code">
+&lt;!-- Font Awesome Icons --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
+
+&lt;!-- Google Fonts --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"&gt;
+
+&lt;!-- Cyberpunk CSS Framework --&gt;
+&lt;link rel="stylesheet" href="cyberpunk.css"&gt;
+                </div>
+            </div>
+            
+            <div class="usage-step">
+                <h4><i class="fas fa-code"></i> Step 2: Basic HTML Structure</h4>
+                <p>Use this basic template to get started:</p>
+                <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Cyberpunk App&lt;/title&gt;
+    &lt;!-- Include dependencies as shown above --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="scanlines"&gt;&lt;/div&gt;
+    
+    &lt;header class="navbar"&gt;
+        &lt;div class="container"&gt;
+            &lt;!-- Your navigation --&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    
+    &lt;main class="container"&gt;
+        &lt;!-- Your content --&gt;
+    &lt;/main&gt;
+    
+    &lt;script src="your-scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </div>
+            </div>
+        </section>
+        
+        <!-- Color Palette -->
+        <section id="colors" class="section">
+            <h2><i class="fas fa-palette"></i> Color Palette</h2>
+            <p>The framework includes a comprehensive set of cyberpunk-themed colors available as CSS variables and utility classes.</p>
+            
+            <div class="component-preview">
+                <h3>Core Colors</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--neon-blue);"></div>
+                        <h4>Neon Blue</h4>
+                        <p><code>--neon-blue</code><br>#00f3ff</p>
+                        <p class="text-neon-blue">.text-neon-blue</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--neon-pink);"></div>
+                        <h4>Neon Pink</h4>
+                        <p><code>--neon-pink</code><br>#ff00ff</p>
+                        <p class="text-neon-pink">.text-neon-pink</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--neon-purple);"></div>
+                        <h4>Neon Purple</h4>
+                        <p><code>--neon-purple</code><br>#9d00ff</p>
+                        <p class="text-neon-purple">.text-neon-purple</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--matrix-green);"></div>
+                        <h4>Matrix Green</h4>
+                        <p><code>--matrix-green</code><br>#00ff41</p>
+                        <p class="text-matrix">.text-matrix</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Background Colors</h3>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--cyber-darker);"></div>
+                        <h4>Cyber Darker</h4>
+                        <p><code>--cyber-darker</code><br>#050510</p>
+                        <p class="bg-darker p-1 rounded">.bg-darker</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--cyber-dark);"></div>
+                        <h4>Cyber Dark</h4>
+                        <p><code>--cyber-dark</code><br>#0a0a1a</p>
+                        <p class="bg-dark p-1 rounded">.bg-dark</p>
+                    </div>
+                    <div class="card">
+                        <div class="color-swatch" style="background-color: var(--cyber-gray);"></div>
+                        <h4>Cyber Gray</h4>
+                        <p><code>--cyber-gray</code><br>#1a1a2e</p>
+                        <p class="bg-gray p-1 rounded">.bg-gray</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Components -->
+        <section id="components" class="section">
+            <h2><i class="fas fa-cube"></i> Components</h2>
+            <p>Pre-styled components ready to use in your projects.</p>
+            
+            <div class="component-preview">
+                <h3>Buttons</h3>
+                <p>Multiple button styles for different actions:</p>
+                <div class="example-container">
+                    <a href="#" class="btn btn-primary m-1"><i class="fas fa-rocket"></i> Primary Button</a>
+                    <a href="#" class="btn btn-secondary m-1"><i class="fas fa-code"></i> Secondary Button</a>
+                    <a href="#" class="btn btn-warning m-1"><i class="fas fa-exclamation-triangle"></i> Warning Button</a>
+                    <button class="btn btn-primary m-1">Button Element</button>
+                </div>
+                <div class="example-code">
+&lt;a href="#" class="btn btn-primary"&gt;
+    &lt;i class="fas fa-rocket"&gt;&lt;/i&gt; Primary Button
+&lt;/a&gt;
+
+&lt;a href="#" class="btn btn-secondary"&gt;
+    &lt;i class="fas fa-code"&gt;&lt;/i&gt; Secondary Button
+&lt;/a&gt;
+
+&lt;a href="#" class="btn btn-warning"&gt;
+    &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt; Warning Button
+&lt;/a&gt;
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Cards</h3>
+                <p>Information containers with hover effects:</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-microchip"></i>
+                            <h4 style="margin: 0;">Cyber Card</h4>
+                        </div>
+                        <p>This is a cyberpunk-styled card component with a neon border and hover effects.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-brain"></i>
+                            <h4 style="margin: 0;">Neural Interface</h4>
+                        </div>
+                        <p>Cards can contain any content and automatically adapt to the cyberpunk theme.</p>
+                        <div class="status status-online">ACTIVE</div>
+                    </div>
+                </div>
+                <div class="example-code">
+&lt;div class="card"&gt;
+    &lt;div class="card-header"&gt;
+        &lt;i class="fas fa-microchip"&gt;&lt;/i&gt;
+        &lt;h4&gt;Cyber Card&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;p&gt;This is a cyberpunk-styled card component.&lt;/p&gt;
+    &lt;a href="#" class="btn btn-secondary"&gt;Learn More&lt;/a&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Status Indicators</h3>
+                <p>Show system status with these indicators:</p>
+                <div class="example-container">
+                    <span class="status status-online m-1"><i class="fas fa-circle"></i> ONLINE</span>
+                    <span class="status status-offline m-1"><i class="fas fa-circle"></i> OFFLINE</span>
+                    <span class="status status-warning m-1"><i class="fas fa-circle"></i> WARNING</span>
+                </div>
+                <div class="example-code">
+&lt;span class="status status-online"&gt;
+    &lt;i class="fas fa-circle"&gt;&lt;/i&gt; ONLINE
+&lt;/span&gt;
+
+&lt;span class="status status-offline"&gt;
+    &lt;i class="fas fa-circle"&gt;&lt;/i&gt; OFFLINE
+&lt;/span&gt;
+
+&lt;span class="status status-warning"&gt;
+    &lt;i class="fas fa-circle"&gt;&lt;/i&gt; WARNING
+&lt;/span&gt;
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Tables</h3>
+                <p>Styled tables for data presentation:</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>Status</th>
+                            <th>Uptime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Neural Network</td>
+                            <td><span class="status status-online">ACTIVE</span></td>
+                            <td>99.7%</td>
+                        </tr>
+                        <tr>
+                            <td>GPS Module</td>
+                            <td><span class="status status-online">LOCKED</span></td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Firewall</td>
+                            <td><span class="status status-warning">WARNING</span></td>
+                            <td>87.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="example-code">
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;System&lt;/th&gt;
+            &lt;th&gt;Status&lt;/th&gt;
+            &lt;th&gt;Uptime&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Neural Network&lt;/td&gt;
+            &lt;td&gt;&lt;span class="status status-online"&gt;ACTIVE&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;99.7%&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Code Blocks</h3>
+                <p>Display code with syntax highlighting style:</p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-language">PYTHON</div>
+                        <button class="btn btn-secondary btn-sm">COPY</button>
+                    </div>
+                    <pre>
+def cyberpunk_function():
+    """A cyberpunk-themed function"""
+    print("System initialized...")
+    status = "ONLINE"
+    return status</pre>
+                </div>
+                <div class="example-code">
+&lt;div class="code-block"&gt;
+    &lt;div class="code-header"&gt;
+        &lt;div class="code-language"&gt;PYTHON&lt;/div&gt;
+        &lt;button class="btn btn-secondary btn-sm"&gt;COPY&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;pre&gt;
+def cyberpunk_function():
+    print("System initialized...")
+    status = "ONLINE"
+    return status&lt;/pre&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Progress Bars</h3>
+                <p>Show progress with animated bars:</p>
+                <div class="mb-2">
+                    <p>System Initialization</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="example-code">
+&lt;div class="progress-bar"&gt;
+    &lt;div class="progress-fill" style="width: 75%;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <h3>Tabs</h3>
+                <p>Create tabbed interfaces:</p>
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'tab1')">System</button>
+                    <button class="tab" onclick="switchTab(event, 'tab2')">Network</button>
+                    <button class="tab" onclick="switchTab(event, 'tab3')">Security</button>
+                </div>
+                <div id="tab1" class="tab-content active">
+                    <p>System diagnostics show all systems are operational.</p>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <p>Network status: Connected to 5 nodes.</p>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <p>Security level: MAXIMUM. Firewall active.</p>
+                </div>
+                <div class="example-code">
+&lt;div class="tabs"&gt;
+    &lt;button class="tab active" onclick="switchTab(event, 'tab1')"&gt;System&lt;/button&gt;
+    &lt;button class="tab" onclick="switchTab(event, 'tab2')"&gt;Network&lt;/button&gt;
+    &lt;button class="tab" onclick="switchTab(event, 'tab3')"&gt;Security&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id="tab1" class="tab-content active"&gt;
+    &lt;p&gt;System diagnostics show all systems are operational.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="tab2" class="tab-content"&gt;
+    &lt;p&gt;Network status: Connected to 5 nodes.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="tab3" class="tab-content"&gt;
+    &lt;p&gt;Security level: MAXIMUM. Firewall active.&lt;/p&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+        </section>
+        
+        <!-- Examples -->
+        <section id="examples" class="section">
+            <h2><i class="fas fa-code"></i> Complete Example</h2>
+            <p>Here's a complete example of a cyberpunk dashboard using the framework:</p>
+            
+            <div class="example-container">
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-server"></i>
+                            <h4 style="margin: 0;">Server Status</h4>
+                        </div>
+                        <p>All servers are running optimally.</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                        <p class="text-center text-success">95% Uptime</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4 style="margin: 0;">Security</h4>
+                        </div>
+                        <p>Firewall and encryption active.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="status status-online">ENCRYPTED</span>
+                            <span class="status status-online">FIREWALL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-network-wired"></i>
+                            <h4 style="margin: 0;">Network</h4>
+                        </div>
+                        <p>Connected to 12 nodes.</p>
+                        <div class="terminal">
+                            > Network scan complete<br>
+                            > 12 active nodes detected<br>
+                            > Bandwidth: 245 Mbps
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <h4>System Controls</h4>
+                    <div class="flex gap-2 flex-wrap">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-play"></i> Start System</a>
+                        <a href="#" class="btn btn-secondary"><i class="fas fa-pause"></i> Pause</a>
+                        <a href="#" class="btn btn-warning"><i class="fas fa-power-off"></i> Emergency Stop</a>
+                        <a href="#" class="btn btn-secondary"><i class="fas fa-cog"></i> Settings</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="usage-step mt-3">
+                <h4><i class="fas fa-lightbulb"></i> Tips & Best Practices</h4>
+                <ul style="padding-left: 1.5rem;">
+                    <li>Always include the <code>.scanlines</code> div for the full cyberpunk effect</li>
+                    <li>Use <code>.glitch</code> class on headings for animated glitch effects</li>
+                    <li>Combine utility classes for custom styling: <code>class="bg-dark p-3 rounded border-neon-blue"</code></li>
+                    <li>The framework is fully responsive - components adapt to screen size</li>
+                    <li>Use Font Awesome icons to enhance the cyberpunk aesthetic</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3><i class="fas fa-robot"></i> CYBERPUNK CSS</h3>
+                <p>A futuristic CSS framework for cyberpunk-themed applications.</p>
+                <div class="mt-2">
+                    <span class="status status-online">
+                        <i class="fas fa-code-branch"></i> VERSION 2.3.5
+                    </span>
+                </div>
+            </div>
+            
+            <div>
+                <h3><i class="fas fa-link"></i> Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#installation"><i class="fas fa-download"></i> Installation</a></li>
+                    <li><a href="#colors"><i class="fas fa-palette"></i> Colors</a></li>
+                    <li><a href="#components"><i class="fas fa-cube"></i> Components</a></li>
+                    <li><a href="#examples"><i class="fas fa-code"></i> Examples</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3><i class="fas fa-shield-alt"></i> License</h3>
+                <p>MIT License - Free for personal and commercial use.</p>
+                <p class="mt-2 text-neon-blue">Made with <i class="fas fa-heart"></i> for the cyberpunk community</p>
+            </div>
+        </div>
+        
+        <div class="copyright text-center mt-3">
+            <p>© 2023 Cyberpunk CSS Framework | Build: 7342-α</p>
+            <p class="text-neon-purple mt-1">
+                <i class="fas fa-terminal"></i> System initialized successfully
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab switching functionality
+        function switchTab(evt, tabName) {
+            // Get all tab content elements
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Get all tab buttons
+            const tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the current tab and mark button as active
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+        
+        // Copy button functionality for code blocks
+        document.querySelectorAll('.btn-secondary').forEach(button => {
+            if (button.textContent.includes('COPY')) {
+                button.addEventListener('click', function() {
+                    const codeBlock = this.closest('.code-block').querySelector('pre');
+                    const textToCopy = codeBlock.textContent;
+                    
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> COPIED!';
+                        this.style.background = 'rgba(0, 255, 65, 0.2)';
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.style.background = '';
+                        }, 2000);
+                    });
+                });
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Console greeting
+        window.addEventListener('load', function() {
+            console.log('%cCYBERPUNK CSS FRAMEWORK v2.3.5', 'color: #00f3ff; font-size: 18px; font-weight: bold;');
+            console.log('%c> Framework initialized successfully', 'color: #00ff41;');
+            console.log('%c> Ready for cybernetic interface development', 'color: #00ff41;');
+        });
+    </script>
+</body>
+</html>
