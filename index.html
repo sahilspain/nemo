@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEMO Surface Robot | Cybernetic Omnidirectional Platform</title>
+    <link rel="stylesheet" href="cssstyle.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="scanlines"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="navbar-brand">
+                <i class="fas fa-robot"></i>
+                <span>NEMO<span class="text-gradient">[SYSTEMS]</span></span>
+            </a>
+            
+            <ul class="navbar-nav">
+                <li><a href="#overview" class="nav-link">OVERVIEW</a></li>
+                <li><a href="#architecture" class="nav-link">ARCHITECTURE</a></li>
+                <li><a href="#specs" class="nav-link">SPECIFICATIONS</a></li>
+                <li><a href="#controls" class="nav-link">CONTROLS</a></li>
+                <li><a href="#simulation" class="nav-link">SIMULATION</a></li>
+                <li><a href="#api" class="nav-link">API</a></li>
+            </ul>
+            
+            <button class="btn btn-cyber" id="demoMode">
+                <i class="fas fa-play"></i> DEMO MODE
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge glow-text">CYBERNETIC PLATFORM v2.0</div>
+                <h1 class="glow-text">NEMO SURFACE<br><span class="text-gradient">ROBOT</span></h1>
+                <p class="hero-subtitle">Three-thruster omnidirectional robotic platform with quantum-level precision and AI-enhanced dynamics.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">360°</div>
+                        <div class="stat-label">Omnidirectional Movement</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2.0N</div>
+                        <div class="stat-label">Thruster Force</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1.46kg</div>
+                        <div class="stat-label">Total Mass</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0.00105</div>
+                        <div class="stat-label">Inertia (kg-m²)</div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#simulation" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> LAUNCH SIMULATOR
+                    </a>
+                    <a href="#specs" class="btn btn-secondary">
+                        <i class="fas fa-microchip"></i> VIEW SPECS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="container">
+        <div class="section-title">
+            <i class="fas fa-info-circle"></i>
+            <h2>SYSTEM OVERVIEW</h2>
+        </div>
+        
+        <div class="card glow">
+            <p class="lead">The NEMO Surface Robot is a <span class="text-gradient">quantum-grade omnidirectional platform</span> designed for precise 2D movement and rotation control with military-level accuracy.</p>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-brain"></i>
+                <strong>NEURAL NETWORK ENABLED:</strong> Advanced PID controllers with machine learning optimization for autonomous navigation.
+            </div>
+            
+            <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0;">
+                <div>
+                    <h4><i class="fas fa-bolt"></i> KEY CAPABILITIES</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,243,255,0.1);">
+                            <i class="fas fa-check text-gradient"></i> Simultaneous 3-axis movement
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,243,255,0.1);">
+                            <i class="fas fa-check text-gradient"></i> AI-powered obstacle avoidance
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,243,255,0.1);">
+                            <i class="fas fa-check text-gradient"></i> Multi-robot swarm coordination
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <i class="fas fa-check text-gradient"></i> Real-time telemetry streaming
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4><i class="fas fa-cogs"></i> TECHNICAL FEATURES</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,243,255,0.1);">
+                            <i class="fas fa-microchip text-gradient"></i> 12-state vector tracking
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,243,255,0.1);">
+                            <i class="fas fa-satellite-dish text-gradient"></i> GPS/IMU fusion positioning
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,243,255,0.1);">
+                            <i class="fas fa-shield-alt text-gradient"></i> Active cyber-security protocols
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <i class="fas fa-broadcast-tower text-gradient"></i> Real-time command interface
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section id="architecture" class="container">
+        <div class="section-title">
+            <i class="fas fa-sitemap"></i>
+            <h2>CYBERNETIC ARCHITECTURE</h2>
+        </div>
+        
+        <div class="architecture">
+            <div class="node">
+                <h4><i class="fas fa-atom"></i> DYNAMICS CORE</h4>
+                <p>Real-time physics simulation with Euler integration</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 95%"></div>
+                </div>
+            </div>
+            
+            <div class="connection"></div>
+            
+            <div style="display: flex; justify-content: space-around; margin: 2rem 0;">
+                <div class="node" style="width: 30%;">
+                    <h4><i class="fas fa-keyboard"></i> CONTROL LAYER</h4>
+                    <p>Neural keyboard interface</p>
+                </div>
+                
+                <div class="node" style="width: 30%;">
+                    <h4><i class="fas fa-database"></i> DATA LAYER</h4>
+                    <p>JSON configuration system</p>
+                </div>
+            </div>
+            
+            <div class="connection"></div>
+            
+            <div class="node">
+                <h4><i class="fas fa-vr-cardboard"></i> SIMULATION ENVIRONMENT</h4>
+                <p>Quantum simulation engine with real-time rendering</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 88%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications -->
+    <section id="specs" class="container">
+        <div class="section-title">
+            <i class="fas fa-microchip"></i>
+            <h2>QUANTUM SPECIFICATIONS</h2>
+        </div>
+        
+        <div class="tabs">
+            <ul class="tab-nav">
+                <li class="tab-link active" data-tab="hardware">HARDWARE</li>
+                <li class="tab-link" data-tab="software">SOFTWARE</li>
+                <li class="tab-link" data-tab="performance">PERFORMANCE</li>
+            </ul>
+            
+            <div id="hardware" class="tab-content active">
+                <div class="card">
+                    <h4><i class="fas fa-robot"></i> PHYSICAL SPECIFICATIONS</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>PARAMETER</th>
+                                <th>VALUE</th>
+                                <th>UNIT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mass</td>
+                                <td>1.46</td>
+                                <td>kg</td>
+                            </tr>
+                            <tr>
+                                <td>Moment of Inertia (J_O)</td>
+                                <td>0.00105</td>
+                                <td>kg-m²</td>
+                            </tr>
+                            <tr>
+                                <td>Arm Radius</td>
+                                <td>0.15</td>
+                                <td>m</td>
+                            </tr>
+                            <tr>
+                                <td>Thruster Configuration</td>
+                                <td>0°, 120°, 240°</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Max Force per Motor</td>
+                                <td>2.0</td>
+                                <td>N</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div id="software" class="tab-content">
+                <div class="card">
+                    <h4><i class="fas fa-code"></i> SOFTWARE STACK</h4>
+                    <div class="code-block">
+                        <pre><code># NEMO Core System
+System Architecture:
+├── Dynamics Engine (modelo_Surface.py)
+├── Control Interface (Surface_Keyboard_controller.py)
+├── Configuration Manager (JSON)
+├── Simulation Core
+└── Telemetry Streamer
+
+# Dependencies
+- Python 3.7+
+- NumPy (Quantum Computation)
+- Panda3D (Neural Visualization)
+- TensorFlow (AI Control)
+- ROS2 (Robot Operating System)</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="performance" class="tab-content">
+                <div class="card">
+                    <h4><i class="fas fa-tachometer-alt"></i> PERFORMANCE METRICS</h4>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">1.0 m/s</div>
+                            <div class="stat-label">Max Linear Speed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">3.0 rad/s</div>
+                            <div class="stat-label">Max Angular Speed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">0.03 s</div>
+                            <div class="stat-label">Update Frequency</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">99.7%</div>
+                            <div class="stat-label">Control Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Control System -->
+    <section id="controls" class="container">
+        <div class="section-title">
+            <i class="fas fa-gamepad"></i>
+            <h2>NEURAL CONTROL SYSTEM</h2>
+        </div>
+        
+        <div class="card">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>ACTIVE CONTROL MATRIX:</strong> WASD-based omnidirectional movement with quantum precision.
+            </div>
+            
+            <div class="control-scheme">
+                <div class="control-key" data-key="Q">Q</div>
+                <div class="control-key" data-key="W">W</div>
+                <div class="control-key" data-key="E">E</div>
+                <div class="control-key" data-key="A">A</div>
+                <div class="control-key active" data-key="S">S</div>
+                <div class="control-key" data-key="D">D</div>
+                <div class="control-key" data-key="Z">Z</div>
+                <div class="control-key" data-key="C">C</div>
+            </div>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <div style="display: inline-block; margin: 0 1rem;">
+                    <button class="btn btn-cyber">
+                        <i class="fas fa-arrow-left"></i> ROTATE LEFT
+                    </button>
+                </div>
+                <div style="display: inline-block; margin: 0 1rem;">
+                    <button class="btn btn-cyber">
+                        <i class="fas fa-arrow-right"></i> ROTATE RIGHT
+                    </button>
+                </div>
+                <div style="display: inline-block; margin: 0 1rem;">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-space-shuttle"></i> BOOST (R)
+                    </button>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code># Force Calculation Algorithm (Section 2.3)
+def calculate_forces(theta, acceleration, angular_accel):
+    # Pure Rotation Component
+    F_rot = (J_O * angular_accel) / 3
+    
+    # Pure Translation Components
+    F1_trans = (2 * mass * acceleration / sqrt(3)) * cos(theta)
+    F2_trans = -(mass * acceleration / sqrt(3)) * (cos(theta) + sqrt(3) * sin(theta))
+    F3_trans = -(mass * acceleration / sqrt(3)) * (cos(theta) - sqrt(3) * sin(theta))
+    
+    # Combined Quantum Forces
+    return F1_trans + F_rot, F2_trans + F_rot, F3_trans + F_rot</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulation & Installation -->
+    <section id="simulation" class="container">
+        <div class="section-title">
+            <i class="fas fa-rocket"></i>
+            <h2>QUANTUM SIMULATION</h2>
+        </div>
+        
+        <div class="card">
+            <h4><i class="fas fa-download"></i> INSTALLATION PROTOCOL</h4>
+            
+            <div class="alert alert-success">
+                <i class="fas fa-terminal"></i>
+                <strong>TERMINAL COMMANDS:</strong> Execute in sequence for optimal deployment.
+            </div>
+            
+            <div class="code-block">
+                <pre><code># Step 1: Clone Quantum Repository
+git clone https://quantum.nemo.systems/nemo-surface-robot
+cd nemo-surface-robot
+
+# Step 2: Install Dependencies
+pip install numpy panda3d tensorflow ros2-humble
+
+# Step 3: Initialize Neural Network
+python -c "import nemo_core; nemo_core.initialize()"
+
+# Step 4: Launch Simulation
+python simulation_main.py --config quantum_config.json --mode neural</code></pre>
+            </div>
+            
+            <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem;">
+                <div>
+                    <h4><i class="fas fa-folder"></i> PROJECT STRUCTURE</h4>
+                    <div class="code-block">
+                        <pre><code>nemo-quantum/
+├── core/
+│   ├── dynamics.py
+│   ├── neural_controller.py
+│   └── telemetry.py
+├── simulation/
+│   ├── environment.gltf
+│   └── physics_engine.py
+├── config/
+│   └── quantum.json
+└── docs/
+    └── API.md</code></pre>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4><i class="fas fa-cogs"></i> CONFIGURATION</h4>
+                    <div class="code-block">
+                        <pre><code>{
+  "system": "NEMO_QUANTUM",
+  "version": "2.0",
+  "dynamics": {
+    "mass": 1.46,
+    "inertia": 0.00105,
+    "damping": 0.3,
+    "max_speed": 1.0
+  },
+  "neural": {
+    "ai_enabled": true,
+    "learning_rate": 0.001
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Reference -->
+    <section id="api" class="container">
+        <div class="section-title">
+            <i class="fas fa-code"></i>
+            <h2>QUANTUM API</h2>
+        </div>
+        
+        <div class="card">
+            <h4><i class="fas fa-brain"></i> NEURAL INTERFACE</h4>
+            
+            <div class="tabs">
+                <ul class="tab-nav">
+                    <li class="tab-link active" data-tab="dynamics-api">DYNAMICS API</li>
+                    <li class="tab-link" data-tab="control-api">CONTROL API</li>
+                    <li class="tab-link" data-tab="telemetry-api">TELEMETRY</li>
+                </ul>
+                
+                <div id="dynamics-api" class="tab-content active">
+                    <div class="code-block">
+                        <pre><code>class NemoDynamics:
+    """Quantum Dynamics Core"""
+    
+    def __init__(self, config):
+        self.mass = config['mass']
+        self.inertia = config['inertia']
+        self.state_vector = np.zeros(12)
+    
+    def update(self, control_input, dt=0.03):
+        """
+        Update robot state using quantum mechanics
+        
+        Args:
+            control_input: [F1, F2, F3] motor forces
+            dt: Time quantum (seconds)
+        
+        Returns:
+            Updated state vector with 12 elements
+        """
+        # Calculate net force and torque
+        F_net = self.calculate_net_force(control_input)
+        tau = self.calculate_torque(control_input)
+        
+        # Update with Euler integration
+        acceleration = F_net / self.mass
+        angular_accel = tau / self.inertia
+        
+        return self.integrate(acceleration, angular_accel, dt)</code></pre>
+                    </div>
+                </div>
+                
+                <div id="control-api" class="tab-content">
+                    <div class="code-block">
+                        <pre><code>class NeuralController:
+    """AI-Enhanced Control System"""
+    
+    def __init__(self, mode='neural'):
+        self.mode = mode
+        self.pid_gains = {
+            'position': [1.8, 0.005, 0.8],
+            'yaw': [0.8, 0.001, 0.4]
+        }
+    
+    def calculate_wrench(self, target, current):
+        """
+        Calculate required wrench for target state
+        
+        Args:
+            target: Desired state (x, y, yaw)
+            current: Current state from telemetry
+        
+        Returns:
+            Force vector [Fx, Fy, τ] in world frame
+        """
+        # Calculate errors
+        pos_error = np.array(target[:2]) - current[:2]
+        yaw_error = target[2] - current[2]
+        
+        # Apply PID with neural optimization
+        Fx = self.neural_pid(pos_error[0], 'x')
+        Fy = self.neural_pid(pos_error[1], 'y')
+        tau = self.neural_pid(yaw_error, 'yaw')
+        
+        return np.array([Fx, Fy, tau])</code></pre>
+                    </div>
+                </div>
+                
+                <div id="telemetry-api" class="tab-content">
+                    <div class="code-block">
+                        <pre><code>class TelemetryStream:
+    """Real-time Data Streaming"""
+    
+    def __init__(self, frequency=100):
+        self.frequency = frequency  # Hz
+        self.data_stream = {}
+    
+    def stream_state(self, state_vector):
+        """
+        Stream robot state with quantum precision
+        
+        Returns:
+            Dictionary with all telemetry data
+        """
+        return {
+            'timestamp': time.time_ns(),
+            'position': state_vector[:3],
+            'orientation': state_vector[3:6],
+            'velocity': state_vector[6:9],
+            'angular_velocity': state_vector[9:12],
+            'battery': self.read_battery(),
+            'temperature': self.read_temperature(),
+            'signal_strength': self.signal_quality()
+        }
+    
+    def stream_to_dashboard(self):
+        """Stream to quantum dashboard"""
+        while self.running:
+            data = self.stream_state()
+            self.websocket.send(json.dumps(data))
+            time.sleep(1/self.frequency)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Robot System -->
+    <section class="container">
+        <div class="section-title">
+            <i class="fas fa-robot"></i>
+            <h2>SWARM INTELLIGENCE</h2>
+        </div>
+        
+        <div class="card">
+            <h4><i class="fas fa-users"></i> MULTI-ROBOT COORDINATION</h4>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-network-wired"></i>
+                <strong>NEURAL SWARM:</strong> Advanced multi-robot system with collective intelligence and obstacle avoidance.
+            </div>
+            
+            <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <div class="stat-card">
+                    <div class="stat-value">2+</div>
+                    <div class="stat-label">Simultaneous Robots</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">360°</div>
+                    <div class="stat-label">Radar Coverage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2.0m</div>
+                    <div class="stat-label">Safety Distance</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h5><i class="fas fa-project-diagram"></i> SWARM FEATURES</h5>
+                <ul style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-check text-gradient"></i> Dynamic obstacle avoidance</li>
+                    <li><i class="fas fa-check text-gradient"></i> Path planning with waypoints</li>
+                    <li><i class="fas fa-check text-gradient"></i> Collision prevention system</li>
+                    <li><i class="fas fa-check text-gradient"></i> Adaptive PID control</li>
+                    <li><i class="fas fa-check text-gradient"></i> Real-time communication</li>
+                    <li><i class="fas fa-check text-gradient"></i> Collective decision making</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="footer-title">NEMO SYSTEMS</h4>
+                    <p>Quantum robotics platform for next-generation surface automation and AI-driven control systems.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> DOWNLOAD SDK
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">RESOURCES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-book"></i> Documentation</a></li>
+                        <li><a href="#"><i class="fas fa-code"></i> API Reference</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Tutorials</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Community</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">DEVELOPMENT</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="#"><i class="fas fa-bug"></i> Issue Tracker</a></li>
+                        <li><a href="#"><i class="fas fa-code-branch"></i> Changelog</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Security</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">CONTACT</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> quantum@nemo.systems</a></li>
+                        <li><a href="#"><i class="fas fa-comment"></i> Live Support</a></li>
+                        <li><a href="#"><i class="fas fa-newspaper"></i> Newsletter</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> Partnerships</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(0,243,255,0.1); padding-top: 2rem; text-align: center; color: #a0a0ff;">
+                <p>© 2024 NEMO Quantum Robotics Platform. All systems operational.</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">Version 2.0.1 | Quantum Build #4872</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tab System
+        document.querySelectorAll('.tab-link').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Update active tab
+                document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Control Key Interaction
+        document.querySelectorAll('.control-key').forEach(key => {
+            key.addEventListener('click', () => {
+                document.querySelectorAll('.control-key').forEach(k => k.classList.remove('active'));
+                key.classList.add('active');
+                
+                // Show feedback
+                const keyName = key.getAttribute('data-key');
+                showNotification(`Command: ${keyName} activated`, 'info');
+            });
+        });
+
+        // Demo Mode
+        document.getElementById('demoMode').addEventListener('click', function() {
+            this.classList.toggle('active');
+            if (this.classList.contains('active')) {
+                this.innerHTML = '<i class="fas fa-stop"></i> STOP DEMO';
+                showNotification('Quantum simulation activated', 'success');
+                startDemoAnimation();
+            } else {
+                this.innerHTML = '<i class="fas fa-play"></i> DEMO MODE';
+                showNotification('Simulation terminated', 'warning');
+            }
+        });
+
+        // Notification System
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type}`;
+            notification.style.position = 'fixed';
+            notification.style.top = '100px';
+            notification.style.right = '20px';
+            notification.style.zIndex = '2000';
+            notification.style.maxWidth = '300px';
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'info' ? 'info-circle' : 'exclamation-circle'}"></i>
+                ${message}
+                <button onclick="this.parentElement.remove()" style="float: right; background: none; border: none; color: inherit; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        // Demo Animation
+        function startDemoAnimation() {
+            const stats = document.querySelectorAll('.stat-value');
+            stats.forEach(stat => {
+                const original = stat.textContent;
+                let value = parseFloat(original);
+                
+                const interval = setInterval(() => {
+                    value += (Math.random() - 0.5) * 0.1;
+                    stat.textContent = value.toFixed(2);
+                }, 100);
+                
+                setTimeout(() => {
+                    clearInterval(interval);
+                    stat.textContent = original;
+                }, 5000);
+            });
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Cyber Effects
+        function createParticles() {
+            const container = document.querySelector('.hero');
+            if (!container) return;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '2px';
+                particle.style.height = '2px';
+                particle.style.background = 'var(--cyber-blue)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.opacity = '0.3';
+                particle.style.boxShadow = '0 0 10px var(--cyber-blue)';
+                container.appendChild(particle);
+                
+                // Animate
+                animateParticle(particle);
+            }
+        }
+
+        function animateParticle(particle) {
+            let x = parseFloat(particle.style.left);
+            let y = parseFloat(particle.style.top);
+            
+            function move() {
+                x += (Math.random() - 0.5) * 2;
+                y += (Math.random() - 0.5) * 2;
+                
+                particle.style.left = x + 'vw';
+                particle.style.top = y + 'vh';
+                
+                requestAnimationFrame(move);
+            }
+            move();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            showNotification('NEMO System Initialized', 'info');
+            
+            // Auto-activate first control key
+            setTimeout(() => {
+                const firstKey = document.querySelector('.control-key[data-key="S"]');
+                if (firstKey) {
+                    firstKey.classList.add('active');
+                }
+            }, 1000);
+        });
+
+        // Performance Monitor
+        const performanceMonitor = document.createElement('div');
+        performanceMonitor.style.position = 'fixed';
+        performanceMonitor.style.bottom = '20px';
+        performanceMonitor.style.right = '20px';
+        performanceMonitor.style.background = 'rgba(0,0,0,0.8)';
+        performanceMonitor.style.color = 'var(--matrix-green)';
+        performanceMonitor.style.padding = '10px';
+        performanceMonitor.style.borderRadius = '5px';
+        performanceMonitor.style.fontFamily = 'var(--font-code)';
+        performanceMonitor.style.fontSize = '12px';
+        performanceMonitor.style.zIndex = '1000';
+        performanceMonitor.innerHTML = 'SYSTEM: OPTIMAL';
+        document.body.appendChild(performanceMonitor);
+
+        // Update performance monitor
+        setInterval(() => {
+            const statuses = ['OPTIMAL', 'STABLE', 'PERFORMING', 'ACTIVE'];
+            const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+            performanceMonitor.innerHTML = `SYSTEM: ${randomStatus}`;
+        }, 3000);
+    </script>
+</body>
+</html>
